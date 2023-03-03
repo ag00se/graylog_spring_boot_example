@@ -1,0 +1,24 @@
+<Configuration monitorInterval="300" status="WARN">
+  <properties>
+    <property name="FILE_NAME">log</property>
+  </properties>
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} -- %msg%n"/>
+    </Console>
+    <GELF name="gelfAppender" server="127.0.0.1" port="12201" hostName="hostname" protocol="TCP">
+      <KeyValuePair key="environment" value="DEV"/>
+      <KeyValuePair key="additionalFields" value="{'environment': 'development', 'application': 'application'}"/>
+    </GELF>
+  </Appenders>
+
+  <Loggers>
+    <Logger additivity="false" level="error">
+      <AppenderRef ref="gelfAppender"/>
+    </Logger>
+    <Root level="info">
+      <AppenderRef ref="Console"/>
+      <AppenderRef ref="gelfAppender"/>
+    </Root>
+  </Loggers>
+</Configuration>
