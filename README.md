@@ -4,7 +4,7 @@
 
 The easiest way to get `graylog` up and running is using the provided docker compose files. ([Documentation](https://go2docs.graylog.org/5-0/downloading_and_installing_graylog/docker_installation.htm))
 
-The compose file used for this example is provided. (link)
+The compose file used for this example is taken from the graylog documentation and also provided in this repo. ([Link](https://github.com/ag00se/graylog_spring_boot_example/blob/master/compose.yml))
 Start the containers:
 
     docker-compose up -d 
